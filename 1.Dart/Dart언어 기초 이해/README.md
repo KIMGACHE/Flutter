@@ -264,8 +264,69 @@ void main() {
 map은 key와 value의 쌍을 element로 갖는 데이터 타입이다. <br>
 **map의 element들은 절대로 중복된 key를 가져서는 안되며 서로 다른 key는 같은 value를 가질 수도 있다.** <br>
 
+<br><br>
 
-10. 
-11. 
+**10. Dart 언어 기능 이해하기** <br>
+
+- Cascade 연산자 이해하기
+```
+void main() {
+  List iList = [];
+  iList
+    ..addAll([2,1])                 // iList에 2,1을 추가한다.
+    ..add(0)                        // iList에 0을 추가한다.
+    ..sort((a,b)=> a.compareTo(b)); // iList를 오름차순으로 정렬한다.
+}
+```
+<br>
+이처럼 같은 객체에 대한 메서드를 연속하여 호출하는 경우 Cascade연산자를 사용하여 보다 가독성을 높일 수 있다.
+<br>
+
+- forEach 메서드
+```
+void printStar(var item) {
+  print("$item");
+}
+
+void main() {
+  List iList = [];
+  iList
+    ..addAll([2,1])                 // iList에 2,1을 추가한다.
+    ..add(0)                        // iList에 0을 추가한다.
+    ..sort((a,b)=> a.compareTo(b)); // iList를 오름차순으로 정렬한다
+  
+  iList.forEach(printStar);
+}
+```
+**forEach()메서드의 입력 파라미터는 함수이다.** <br>
+위의 코드의 의미는 iList객체의 모든 element들을 printStar()함수의 입력 파라미터로 적용해서 실행하라는 것이다. <br>
+ex) printStar(0), printStar(1), printStar(2)... <br>
+
+
+- 지수 표현
+알파벳 e를 이용하여 표시한다. <br>
+ex) num varE = 1.1e2;  // 1.1의 2승을 의미 <br>
+
+- 문자열을 숫자로 변환
+```
+num varI = int.parse('1');
+num varD = double.parse('1.1');
+```
+<br>
+- 나열형데이터
+개발자가 새로운 데이터 타입을 만들 수 있도록 지원하는 문법 <br>
+새로운 데이터 타입이 갖는 값은 몇 가지의 값들로 제한되며, 그 외의 값은 다루지 못한다. <br>
+```
+enum Color { red, green, blue }  // 새로운 데이터 타입을 정의
+
+void main() {
+  print(Color.values);    // Color타입의 값은 red, green, blue만 가질 수 있음
+  Color chColor = Color.red;  // 객체에 값을 red로 초기화.
+}
+```
+<br>
+ex) 빛의 삼원색(red,green,blue) , 전기스위치(on,off) 등등.. <br>
+
+
 
 
