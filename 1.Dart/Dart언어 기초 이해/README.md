@@ -278,8 +278,8 @@ void main() {
     ..sort((a,b)=> a.compareTo(b)); // iList를 오름차순으로 정렬한다.
 }
 ```
-<br>
 이처럼 같은 객체에 대한 메서드를 연속하여 호출하는 경우 Cascade연산자를 사용하여 보다 가독성을 높일 수 있다.
+
 <br>
 
 - forEach 메서드
@@ -302,10 +302,13 @@ void main() {
 위의 코드의 의미는 iList객체의 모든 element들을 printStar()함수의 입력 파라미터로 적용해서 실행하라는 것이다. <br>
 ex) printStar(0), printStar(1), printStar(2)... <br>
 
+<br>
 
 - 지수 표현
 알파벳 e를 이용하여 표시한다. <br>
 ex) num varE = 1.1e2;  // 1.1의 2승을 의미 <br>
+
+<br>
 
 - 문자열을 숫자로 변환
 ```
@@ -313,6 +316,7 @@ num varI = int.parse('1');
 num varD = double.parse('1.1');
 ```
 <br>
+
 - 나열형데이터
 개발자가 새로운 데이터 타입을 만들 수 있도록 지원하는 문법 <br>
 새로운 데이터 타입이 갖는 값은 몇 가지의 값들로 제한되며, 그 외의 값은 다루지 못한다. <br>
@@ -324,9 +328,4 @@ void main() {
   Color chColor = Color.red;  // 객체에 값을 red로 초기화.
 }
 ```
-<br>
 ex) 빛의 삼원색(red,green,blue) , 전기스위치(on,off) 등등.. <br>
-
-
-
-
