@@ -218,12 +218,54 @@ List 클래스는 복수의 값을 저장할 수 있으며, 개발자가 지정�
 저장되는 복수의 값은 동일한 데이터 타입일 수도 있고 서로 다른 데이터 타입을 함께 섞어서 저장할 수도 있다. <br>
 Dart언어에서 List는 **대괄호[]** 로 묶어서 표현한다.
 
+```
+void main() {
+  List iList = [1,2,3,4,5];
+  
+  iList.length;  // list의 길이
+  iList.first;  // list의 가장 첫 element
+  iList.last;  // list의 가장 마지막 element
+  iList.indexOf(3);  // element 3이 list에서 몇번째 위치에 존재하는가 -> 0부터 시작하기때문에 3은 2번째에 위치하고 있다.
+
+  for( var item in iList ) {...};
+  // iList에 있는 element를 하나하나 item에 저장하도록 하는 for구문
+
+  List<int> intList = [1,2,3,4,5];
+  // List에 int타입의 값만을 넣을 수 있다.
+}
+```
+
+<br><br>
+
+**8. Set을 이용하여 집합 데이터 처리하기** <br>
+Dart언어에서 집합은 중괄호 {}를 사용하여 표현한다.
+
+```
+void main() {
+  Set setFill = {1,2};  // Set정의
+  Set setEmpty = {};
+  
+  setFill.add(3);
+  // 입력 파라미터가 집합에 추가된다, 추가하는 element가 이미 집합에 존재한다면 add()메서드는 무시된다.
+  setEmpty.addAll([3,4,5]); // 입력 파라미터로 전달하는 집합의 element가 모두 추가된다.
+  setFill.contains(3);  // 입력 파라미터로 전달된 값이 집합에 존재하면 true를 반환한다.
+  setFill.union(setEmpty);  // 두 집합의 합집합을 반환한다.(집합에서 중복은 존재하지 않는다.)
+  setFill.intersection(setEmpty); // 두 집합의 교집합을 반환한다.
+  setFill.difference(setEmpty); // 메서드를 호출한 집합에만 존재하고 입력으로 받은 집합에는 존재하지않는 집합을 반환한다.
+  setFill.remove(3);  // 입력 파라미터가 집합에 존재할 경우 집합에서 제거한다.
+  
+  Set<int> exSet1 = {1,2,3};  // 집합의 element를 특정 타입으로 제한할 수 있다.
+}
+```
+
+<br><br>
+
+**9. map을 이용하여 사전 데이터 처리하기** <br>
+map은 key와 value의 쌍을 element로 갖는 데이터 타입이다. <br>
+**map의 element들은 절대로 중복된 key를 가져서는 안되며 서로 다른 key는 같은 value를 가질 수도 있다.** <br>
 
 
-
-
-
-8. 
-9. 
 10. 
+11. 
+
 
