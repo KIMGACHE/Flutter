@@ -14,7 +14,7 @@ void main() {
 
 <br><br>
 
-**1. 기초적인 숫자와 문자 다루기**
+**1. 기초적인 숫자와 문자 다루기** <br>
 
 Dart언어에서 숫자는 정수와 실수로 나뉜다. 그리고 이러한 숫자 중 값이 계속 변경 가능한 **변수**와 한번 값이 정해지면 바뀔 수 없는 **상수**가 있다. <br>
 글자들을 저장하는 문자열(String)도 값이 정해지면 바뀌지 않는 **상수**와 값을 바꿀 수 있는 **변수**가 있다. <br>
@@ -41,7 +41,7 @@ print("$varInt $varDouble $varString");
 
 <br><br>
 
-**2. 문자 자세히 다루기**
+**2. 문자 자세히 다루기** <br>
 ```
 void main() {
   var str1 = 'Single Quotes';
@@ -80,7 +80,7 @@ toStringAsFixed(N) : 실수형 변수(혹은 상수)에 저장한 값을 문자�
 
 <br><br>
 
-**3. 조건문 다루기**
+**3. 조건문 다루기** <br>
 if-else문과 switch문은 JAVA와 동일하므로 생략한다.<br>
 
 **assert**조건문 : assert는 프로그램이 오류 상태여서 수행을 중단해야 하는지를 판단하는 경우에 주로 사용한다.
@@ -101,7 +101,7 @@ void main() {
 
 <br><br>
 
-**4. 반복문으로 작업하기**
+**4. 반복문으로 작업하기** <br>
 for문과 while문은 JAVA와 동일하므로 생략한다.(do-while문도 동일하지만 익숙하지 않아 기록함.) <br>
 
 **do-while문** : 반복할 작업이 반드시 한번은 수행이 된다는 특징을 갖는다. <br>
@@ -118,9 +118,69 @@ void main() {
 
 <br>
 
-**continue** : 반복문 안에서 continue가 실행되면 반복문의 흐름이 업데이트 영역으로 이동한다.
+**continue** : 반복문 안에서 continue가 실행되면 반복문의 흐름이 업데이트 영역으로 이동한다. <br>
 **break** : 반복문 안에서 break가 실행되면 프로그램의 흐름을 바로 반복문에서 나온 뒤 다음 작업으로 이동한다.
 
+<br><br>
 
-5. 
+**5. 함수를 이용하여 반복 작업하기** <br>
+```
+getMax(3,2); // 3
+getSum(3,2); // 5
+getMaxNamed(argv1: 3, argv2: 2); // 3
+
+// 함수에서 전달받아야 하는 입력 파라미터의 이름을 함수를 호출하는 시점에서 명시하고 입력 파라미터에게 줄 값을 콜론 기호를 사용하여 할당한다.
+// 입력 파라미터의 순서가 바뀌어도 문제가 없다는 장점이 있다.
+
+void main() {
+  // Type.1 Normal Function
+  int getMax(var argv1, var argv2) {
+    if (argv1 >= argv2) {
+      return argv1;
+    } else {
+      return argv2;
+    }
+  }
+
+  // Type.2 Shorthand Syntax Function
+  int getSum(var argv1, var argv2) => argv1 + argv2;
+
+  // 한 줄 정도의 간단한 작업을 수행하는 함수는 굳이 중괄호를 사용하지 않고 수행할 일을 => 기호 뒤에 작성한다.
+  // return구문도 사용하지 않고 => 기호 뒤의 문장은 세미클론으로 종료한다.
+
+  // Type.3 Named Parameters
+  int getMaxNamed({var argv1, var argv2}) {
+    if (argv1 >= argv2) {
+      return argv1;
+    } else {
+      return argv2;
+    }
+  }
+
+  // 함수를 호출하는 쪽에서 입력 값의 순서가 의미가 없다.
+
+  // Type.4 Optional and Default Parameters in Normal Function
+    int getMaxDefault(var argv1, [var argv2 = 1]) {
+      if (argv1 >= argv2) {
+        return argv1;
+      } else {
+        return argv2;
+      }
+    }
+  // 입력 파라미터를 주지 않은 경우 함수에서 미리 정한 초깃값으로 설정한다는 표현으로 []를 사용한다.
+
+  // Type.5 Optional and Default Parameters in Named Parameters
+  int getMaxNamedDefault({var argv1, var argv2 = 1}) {
+    if(argv1 >= argv2) {
+      return argv1;
+    } else {
+      return argv2;
+    }
+  }
+  // 초깃값을 사용하면서 named parameter를 사용하는 경우 []를 사용하지않고 {}내에서 초깃값을 설정한다.
+}
+
+```
+
+
 6. 
