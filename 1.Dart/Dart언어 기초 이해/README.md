@@ -389,6 +389,11 @@ void main() {
   ); // iNullableInt가 null인 경우 null.abs()는 존재하지 않으므로 접근을 막는다.
 
   // []!
+  // 먼저 주의할 사항 Map클래스의 객체를 사용할 때 key값을 주어 value값을 계산할 때에는 해당 결과가 null이 될 수 있음을 명심한다.
+  var map = {'key':'value'};
+  // print(map['key'].length);  호출한 map['key']가 nullable한 String? 타입이기때문에 null일 수도 있으므로 에러가 발생한다.
+  print(map['key']!.length);
+  
 }
 
 void printStarWithDefault(String item, [String? mark]) {
@@ -398,7 +403,22 @@ void printStarWithDefault(String item, [String? mark]) {
     print("$mark $item $mark");
   }
 } // optional 파라미터에 default값을 주지않고 null을 받을 수 있게끔 하여 내부적으로 처리함
+
+void printStarWithDefault(String item, [String? mark]) {
+  if (mark == null) {
+    print("\u{2605} $item \u{2605}");
+  } else {
+    print("$mark $item $mark");
+  }
+} // optional 파라미터에 default값을 주지않고 null을 받을 수 있게끔 하여 내부적으로 처리함
 ```
+
+<br>
+
+모든 객체(변수)는 생성 시 반드시 초기화한다. <br>
+함수의 optional한 파라미터는 반드시 default값을 갖도록 초기화한다. <br>
+변수 생성시 초기화 하지 않았다면, 해당 변수를 처음으로 사용하기 전에 반드시 값을 저장한다. <br>
+함수의 리턴 타입이 void가 아니라면 반드시 리턴 값을 명확하게 작성한다. <br>
 
 - 
 - 
