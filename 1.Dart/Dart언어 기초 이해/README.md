@@ -329,3 +329,8 @@ void main() {
 }
 ```
 ex) 빛의 삼원색(red,green,blue) , 전기스위치(on,off) 등등.. <br>
+
+- Null-Safety <br>
+null은 Dart언어에서 '없다'는 의미이다.
+- 
+- 
