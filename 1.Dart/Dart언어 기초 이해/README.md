@@ -264,6 +264,33 @@ void main() {
 map은 key와 value의 쌍을 element로 갖는 데이터 타입이다. <br>
 **map의 element들은 절대로 중복된 key를 가져서는 안되며 서로 다른 key는 같은 value를 가질 수도 있다.** <br>
 
+```
+void main() {
+  Map dbFruit = {"A001":"Apple","A002":"Mango"};
+  var dbEmpty = <dynamic, dynamic>{};
+  
+  print(dbFruit.length);
+  print(dbFruit["A001"]);
+  print(dbFruit.isNotEmpty);
+  print(dbEmpty.isEmpty);
+  
+  // Map객체에 새로운 element를 넣는 방법
+  dbFruit["A003"] = "Banana";
+  dbEmpty.addAll(dbFruit);
+  
+  // Map객체에 저장되어 있는 특정 element의 value를 바꾸는 방법
+  dbFruit["A003"] = "Orange";
+  
+  // Map객체에 키와 밸류가 존재하는지 여부를 확인하는 방법
+  print(dbFruit.containsKey("A002"));
+  print(dbFruit.containsValue("Apple"));
+  
+  // Map객체에 저장된 element를 제거하는 방법
+  dbFruit.remove("A002");
+  dbEmpty.clear();  // 모든 값 제거
+}
+```
+
 <br><br>
 
 **10. Dart 언어 기능 이해하기** <br>
@@ -331,6 +358,47 @@ void main() {
 ex) 빛의 삼원색(red,green,blue) , 전기스위치(on,off) 등등.. <br>
 
 - Null-Safety <br>
-null은 Dart언어에서 '없다'는 의미이다.
+null은 Dart언어에서 '없다'는 의미이다. <br>
+
+```
+void main() {
+  int iTemp = 3;
+  print(iTemp);
+  int iNonNullableInt;
+  //   print(iNonNullableInt);  특별한 문법을 쓰지 않은 Dart언어의 변수는 null을 가질 수 없다.
+  //   iTemp = iNonNullableInt;
+
+  int? iNullableInt; // ? 는 해당 객체가 null을 저장할 수 있다고 선언하는 문법이다.
+  iNullableInt = null;
+  print(iNullableInt);
+  //   print(iNullableInt.abs()); // null은 abs() 메서드를 갖고 있지않기 때문에 에러가 발생한다.
+
+  // A ?? B 는 "만약 A가 null이 아니면 해당 위치에 A가 가지고 있는 값으로 계산한다.
+  // 하지만 A가 null이면 해당 위치에 B가 가지고 있는 값으로 계산한다."
+  print(
+    iNullableInt ?? iTemp,
+  ); // iNullableInt가 null이 아니면 해당 값을 null이면 iTemp를 출력한다.
+
+  // A = (B ??= C) 는 "만약 B가 null이 아니면 A를 B로 설정하고, B가 null이면 A를 C로 설정한다."
+  iNonNullableInt = (iNullableInt ?? iTemp);
+  print(iNonNullableInt);
+
+  // ?. 는 객체가 null인 상태인 경우 호출이 불가능한 메서드와 프로퍼티에 접근하는 것을 막는것이 목적이다.
+  print(
+    iNullableInt?.abs(),
+  ); // iNullableInt가 null인 경우 null.abs()는 존재하지 않으므로 접근을 막는다.
+
+  // []!
+}
+
+void printStarWithDefault(String item, [String? mark]) {
+  if (mark == null) {
+    print("\u{2605} $item \u{2605}");
+  } else {
+    print("$mark $item $mark");
+  }
+} // optional 파라미터에 default값을 주지않고 null을 받을 수 있게끔 하여 내부적으로 처리함
+```
+
 - 
 - 
