@@ -24,3 +24,66 @@ README.md : 프로젝트 소개 (직접 관리) <br>
 .packages : Flutter SDK에 사용하는 기본 패키지 경로 (자동 관리) <br>
 first_flutter_app.iml : 파일이 자동으로 생성될 때 만들어지는 폴더 위치 (자동 관리) <br>
 pubspec.lock : pubspec.yaml파일에 적용된 패키지 위치 (자동 관리) <br>
+
+<br>
+
+Flutter 메인 Source 파일 - main.dart <br>
+```
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+```
+
+<br>
+
+runApp()함수는 binding.dart 클래스에 정의되어 있으며 플러터 앱을 시작하는 역할을 한다. 이 함수에 플러터 앱을 시작하면서 화면에 표시할 위젯을 전달한다. <br>
+
+<br>
+
+```
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+```
+
+<br>
+
+extends를 통해 **StatelessWidget**이라는 클래스를 상속받는다. <br>
+MyApp 클래스에서는 @override 애너테이션을 이용해 build()라는 함수를 재정의하였다. <br>
+build()함수에서 어떤 위젯을 만들 것인지를 정의 한다.
+
+처음 runApp()을 이용해 클래스를 실행할 때는 MaterialApp()함수를 반환해야 한다. MaterialApp()함수는 그림을 그리는 도구에 속하는 title. theme, home등이 정의되어 있다.
